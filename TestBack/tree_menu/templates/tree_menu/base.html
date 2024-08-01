@@ -1,0 +1,16 @@
+{% load menu_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" href="{% static 'tree_menu/tree_menu.css' %}" rel="stylesheet"/>
+    <title>Title</title>
+</head>
+<nav>{% draw_menu "main_menu" %} {% draw_menu "Stars" %}</nav>
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

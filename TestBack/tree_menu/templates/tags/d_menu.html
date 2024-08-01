@@ -1,0 +1,25 @@
+<ul class="tree-padding tree-vertical-lines tree-horizontal-lines tree-summaries tree-markers tree-buttons">
+  <li>
+    <details open>
+      {% for key, value in m_menu.items %}
+        {% if forloop.first %}
+          <summary>{{ key }}</summary>
+          <ul>
+            {% for i in value %}
+              <li>
+                <details>
+                  <summary>{{ i }}</summary>
+                  <ul>
+                    {% for p in i.submenu_set.all %}
+                    <li><a href="{% url 'planet' key p %}">{{ p }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </details>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endfor %}
+    </details>
+  </li>
+</ul>
